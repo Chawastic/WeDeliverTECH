@@ -1,0 +1,186 @@
+/* Menu Styles */
+.btn-group {
+  font-family: 'Consolas', monospace;
+}
+
+.btn-group .btn {
+  margin-right: 1mm;
+}
+
+.btn-group .btn.menu-btn {
+  border-radius: 0;
+}
+
+.menu-btn {
+  background-color: #0e8ea8;
+  color: #fff;
+}
+
+/* Adjust the background-color slightly on hover for menu buttons */
+.menu-btn:hover {
+  background-color: #0b7d97; /* Slightly darker shade on hover */
+  color: #fff;
+}
+
+/* Apply styles when the menu buttons are clicked */
+.menu-btn:active {
+  background-color: #0b7d97; /* Same darker shade when clicked */
+  color: #fff;
+}
+
+.dropdown-item {
+  background-color: #83d1e1;
+  color: #212529;
+  transition: background-color 0.3s; /* Add a transition for a smoother highlight effect */
+}
+
+.dropdown-item:hover {
+  background-color: #c4e1ed; /* Adjust the background color on hover for a subtle highlight effect */
+  color: #212529; /* Ensure text color remains consistent */
+}
+
+/* Apply styles when the dropdown items are clicked */
+.dropdown-item:active {
+  background-color: #83d1e1; /* Revert to the original background color when clicked */
+  color: #212529; /* Ensure text color remains consistent */
+}
+
+.btn-group .dropdown-menu {
+  border: none;
+}
+
+#ordersDropdownMenu {
+  min-width: unset;
+  margin-top: 0;
+  margin-left: 0;
+  top: 100%;
+  left: 0;
+}
+
+#ordersDropdownMenu .dropdown-item {
+  width: 115%;
+}
+
+#inventoryDropdownMenu {
+  min-width: unset;
+  margin-top: 0;
+  margin-left: 0;
+  top: 100%;
+  left: 0;
+}
+
+#inventoryDropdownMenu .dropdown-item {
+  width: 149%;
+}
+
+/* end of navbar */
+
+.border-container {
+  width: 1000px; 
+  margin: 0 auto;
+  border: 2px solid #000;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+  margin-top: 120px;
+}
+
+
+/* end of border */
+
+.border-container h1,
+.border-container h2 {
+    font-family: 'Consolas', monospace;
+    font-size: 200%; 
+}
+
+.table-frame {
+  border-collapse: collapse;
+  border: 2px solid #000; /* You can adjust the border color and thickness as needed */
+  width: 100%;
+}
+
+.table-frame th,
+.table-frame td {
+  border: 1px solid #000; /* You can adjust the border color and thickness as needed */
+  padding: 8px;
+  text-align: left;
+}
+
+#staff-table tbody tr:hover {
+  background-color: #e2e2e2; /* Change the background color on hover */
+}
+
+
+
+
+.container {
+  position: relative;
+}
+
+
+.modal-icon {
+  font-size: 72px; /* Adjust the size as needed */ 
+  animation: scaleUp 0.5s ease-in-out; /* Animation duration and easing */
+}
+
+#delivery-table tbody tr:hover {
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
+
+/* CSS for turning green on click for the "delivery-table" */
+#delivery-table tbody tr.active {
+  background-color: #28a745;
+  color: white;
+}
+
+.custom-toast {
+  position: absolute; /* Change to absolute positioning */
+  right: -37%;
+  z-index: 100; /* Ensure it's above other content */
+  transition: top 0.5s; /* Add a transition for smooth movement */
+  display: none; /* Initially hide the toasts */
+}
+
+.custom-toast.show {
+  display: block; /* Show the toast when the "show" class is applied */
+}
+
+.custom-toast .btn-close {
+  position: absolute;
+  top: 7px;
+  right: 7px; /* Adjust the right value as needed */
+  padding: 0.25rem 0.5rem;
+}
+
+.delivery-custom-toast {
+  position: absolute; /* Change to absolute positioning */
+  right: 103%;
+  z-index: 100; /* Ensure it's above other content */
+  transition: top 0.5s; /* Add a transition for smooth movement */
+  display: none; /* Initially hide the toasts */
+}
+
+.delivery-custom-toast.show {
+  display: block; /* Show the toast when the "show" class is applied */
+}
+
+.delivery-custom-toast .btn-close {
+  position: absolute;
+  top: 7px;
+  right: 7px; /* Adjust the right value as needed */
+  padding: 0.25rem 0.5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

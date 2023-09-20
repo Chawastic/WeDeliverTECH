@@ -343,59 +343,56 @@ function staffMemberIsLate(userFirstName, userLastName, thumbnailImageURL) {
     deliveryLateToast.css('top', `${topPosition}px`);
   }
   
-  
-  $('#triggerDeliveryLateToast').on('click', function () {
+  // Bind click event to the "Trigger Delivery Toast" button
+  $('#triggerDeliveryLateToastButton').on('click', function () {
     const deliveryData = [];
     $('#delivery-table tbody tr').each(function () {
-        const cells = $(this).find('td');
-        if (cells.length >= 6) {
-            const name = $(cells[1]).text();
-            const surname = $(cells[2]).text();
-            const telephone = $(cells[3]).text();
-            const address = $(cells[4]).text();
-            const returnTime = $(cells[5]).text();
+      const cells = $(this).find('td');
+      if (cells.length >= 6) {
+        const name = $(cells[1]).text();
+        const surname = $(cells[2]).text();
+        const telephone = $(cells[3]).text();
+        const address = $(cells[4]).text();
+        const returnTime = $(cells[5]).text();
   
-            const deliveryInfo = `${name} ${surname}\n${telephone}\n${address}\n${returnTime}`;
-            deliveryData.push(deliveryInfo);
-        }
+        const deliveryInfo = `${name} ${surname}\n${telephone}\n${address}\n${returnTime}`;
+        deliveryData.push(deliveryInfo);
+      }
     });
   
     if (deliveryData.length > 0) {
       deliveryDriverIsLate(deliveryData.join('\n\n'));
     } else {
-        alert('No delivery data available.');
+      alert('No delivery data available.');
     }
   });
   
-function checkForLateDeliveries() {
-  setInterval(function () {
-    const now = new Date();
-    const hours = now.getHours().toString().padStart(2, '0');
-    const minutes = now.getMinutes().toString().padStart(2, '0');
-    const currentTime = `${hours}:${minutes}`;
-
-    $('#return-table-body tr').each(function () {
-      const cells = $(this).find('td');
-
-      if (cells.length >= 6) {
-        const returnTime = $(cells[5]).text();
-
-        if (returnTime === currentTime) {
-          const deliveryData = [];
-          const name = $(cells[1]).text();
-          const surname = $(cells[2]).text();
-          const telephone = $(cells[3]).text();
-          const address = $(cells[4]).text();
-          const deliveryInfo = `${name} ${surname}\n${telephone}\n${address}\n${returnTime}`;
-          deliveryData.push(deliveryInfo);
-          showDeliveryLateNotification(deliveryData.join('\n\n'));
-        }
-      }
-    });
-  }, 60000);
-}
-
-checkForLateDeliveries();
-
-
+  function checkForLateDeliveries() {
+    setInterval(function () {
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      const currentTime = `${hours}:${minutes}`;
   
+      $('#return-table-body tr').each(function () {
+        const cells = $(this).find('td');
+  
+        if (cells.length >= 6) {
+          const returnTime = $(cells[5]).text();
+  
+          if (returnTime === currentTime) {
+            const deliveryData = [];
+            const name = $(cells[1]).text();
+            const surname = $(cells[2]).text();
+            const telephone = $(cells[3]).text();
+            const address = $(cells[4]).text();
+            const deliveryInfo = `${name} ${surname}\n${telephone}\n${address}\n${returnTime}`;
+            deliveryData.push(deliveryInfo);
+            deliveryDriverIsLate(deliveryData.join('\n\n'));
+          }
+        }
+      });
+    }, 35000);
+  }
+  
+  checkForLateDeliveries();
